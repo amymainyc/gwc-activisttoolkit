@@ -1,0 +1,102 @@
+/******************************************************/
+/************** CSS FOR TAKE-ACTION.HTML **************/
+/******************************************************/
+
+.page-header-action {
+  width: 100%;
+  position: absolute;
+  text-transform: uppercase;
+  background-color: #0D38D3;
+}
+
+
+/******************************************************/
+/***************** ACTION ITEM LIST *******************/
+/******************************************************/
+/* Right box under title; item in .flex-container */
+.action-list-container {
+  width: 75%;
+  padding: 35px;
+  flex-grow: 1;
+  background-color: #7EBC89;
+  text-align: left;
+  display: inline-block;
+}
+
+/* Holds all elements related to the action item list; inside the action-list-container */
+#checklist {
+  background-color: #7EBC89;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  border: solid;
+  border-color: white;
+  /*border-style: dotted;*/ /*Uncomment to see the outline of the container*/
+}
+
+/* The div container for the unordered action item list */
+#my-list {
+  padding: 10px 0 0 0;
+  margin: 0;
+  font-size: 14pt;
+}
+
+/* Styling for individual action list items */
+#my-list li {
+  cursor: pointer;
+  padding-top: 8px;
+  padding-right: 20px;
+  padding-bottom: 8px; 
+  padding-left: 35px;
+  position: relative;
+  list-style-type: none;
+  width: 85%;
+  color: white;
+  /*border-style: dotted;*/ /*Uncomment to see the outline of the container*/
+}
+
+/* Styling for the check squares added at the beginning of each list item */
+#my-list li::before {
+  content: "";
+  position: absolute;
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+  
+  top: 15px;
+  left: 13px;
+  height: 10px;
+  width: 10px;
+}
+/* 
+A note on the checkbox: This is actually just a neat trick. Before the 
+item is clicked, the CSS file inserts a blank space through the content: "";
+property. You can draw a border around this blank space so it appears like 
+a box. After the item is clicked, new CSS rules are applied that remove the 
+border from two sides and rotate the blank space by 45 degress so it looks 
+like a checkmark!
+*/
+
+/* Change background color when cursor hovers over list items */
+#my-list li:hover {
+  background: #53A262;
+  color: white;
+}
+
+/* When marked complete (i.e. clicked on) add strikethrough */
+#my-list li.all-done {
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+#my-list li.all-done::before {
+  content: "";
+  position: absolute;
+  border-color: white;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 5px;
+  left: 16px;
+  transform: translate(0px, 40%) rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
